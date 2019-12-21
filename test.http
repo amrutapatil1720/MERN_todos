@@ -1,1 +1,10 @@
 GET http://localhost:3333/todos
+
+###
+
+POST http://localhost:3333/todos
+Content-Type: application/json
+
+{
+    "title": "My task number"
+}

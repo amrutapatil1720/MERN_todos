@@ -20,8 +20,12 @@ const todoSchema=new mongoose.Schema({
 const Todo= mongoose.model('todolist', todoSchema);
 app.get('/todos', (req, res) => {
     Todo.find().then(todo=>res.json(todo))
-}
-    
-)
+});
+app.post('/todos',(req,res)=> {
+    const newTodo=new Todo({
+        title :req.body.title
+    })
+    newTodo.save().then(todo=>res.json(todo));
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
