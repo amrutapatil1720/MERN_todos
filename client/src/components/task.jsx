@@ -1,13 +1,20 @@
 import React from 'react';
 
-const Task=(props) => {
-    console.log("hgjhg",props.singleTodo)
+
+const Task = (props) => {
+    console.log("hgjhg", props.singleTodo)
     return (
         <div>
-<h3 className="text-dark text-center bg-light">
+            <h6 className="text-dark text-center bg-light text-capitalize d-flex list-group-item justify-content-between my-2">
+                {props.singleTodo.title}
+            </h6>
+            <div className="todo-icon">
+                <span className="mx-2 text-success">
+                    <i className="fas fa-pen"></i>
+                    
+                </span>
+            </div>
 
-{props.singleTodo.title}
-         </h3>
         </div>
     )
 }

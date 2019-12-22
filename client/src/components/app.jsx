@@ -12,6 +12,7 @@ class App extends React.Component {
         }
         this.addTodo=this.addTodo.bind(this);
         this.handleButtonClick=this.handleButtonClick.bind(this);
+        this.clearList=this.clearList.bind(this);
     }
     addTodo(e) {
         // console.log(e.target.value)
@@ -29,12 +30,15 @@ class App extends React.Component {
       })
       e.preventDefault()
     }
+    clearList() {
+        this.setState({todo:[]})
+    }
     render() {
         return (
             <div className="app-container">
                 <Header />
                 <AddTodo title={this.state.title} addTodo={this.addTodo} handleButtonClick={this.handleButtonClick}/>
-                <TodoList todo={this.state.todo}/>
+                <TodoList todo={this.state.todo} clearList={this.clearList}/>
             </div>
         )
     }
