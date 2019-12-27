@@ -7,12 +7,13 @@ class TodoList extends React.Component {
     }
     
     render() {
-        console.log(this.props);
+        const {editTodo, deleteTodo}=this.props;
+        console.log("ankit",this.props);
         return (
             <div>
                 <h3 className="text-center mt-3">Tasks</h3>
             {this.props.todo.map((singleTodo)=> {
-                return <Task singleTodo={singleTodo}/>
+                return <Task key={singleTodo.id} title={singleTodo.title} editTodo={() => editTodo(singleTodo.id)} deleteTodo={() => deleteTodo(singleTodo.id)}/>
             })}
             <button type="submit" className="btn btn-danger form-control mt-5" onClick={this.props.clearList}>Clear List</button>
             </div>
